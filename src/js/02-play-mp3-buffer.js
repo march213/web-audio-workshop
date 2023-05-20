@@ -13,6 +13,9 @@ async function loadSound() {
     audioContext = new AudioContext();
   }
 
+  // it is good when the sound is not long and you dont want to have a lag
+  // when you load the file, as in the example in first lesson
+  
   // Re-use the audio buffer as a source
   if (!audioBuffer) {
     // Fetch MP3 from URL
