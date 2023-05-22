@@ -89,18 +89,24 @@ function draw() {
     beginShape();
 
     for (let i = 0; i < analyserData.length; i++) {
-      // -1...1
+      // -1 ... 1
       const amplitude = analyserData[i];
 
       const y = map(
         amplitude,
         -1,
         1,
-        height / 2 - height / 4,
-        height / 2 + height / 4
+        height/2 - height/4,
+        height/2 + height/4
       );
 
-      const x = map(i, 0, analyserData.length - 1, 0, width);
+      const x = map(
+        i,
+        0,
+        analyserData.length - 1,
+        0,
+        width,
+      )
 
       vertex(x, y);
     }

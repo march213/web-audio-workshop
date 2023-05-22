@@ -8,13 +8,13 @@ function mousePressed() {
     audioContext = new AudioContext();
 
     // Create <audio> tag
-    audio = document.createElement("audio");
+    audio = document.createElement('audio');
 
     // set URL to the MP3 within your Glitch.com assets
-    audio.src = "audio/piano.mp3";
+    audio.src = 'audio/bluejeans.mp3';
 
     // To play audio through Glitch.com CDN
-    audio.crossOrigin = "Anonymous";
+    audio.crossOrigin = 'Anonymous';
 
     // Enable looping so the audio never stops
     audio.loop = true;
@@ -51,15 +51,16 @@ function windowResized() {
 
 function draw() {
   // fill background
-  background("black");
+  background('black');
 
-  fill("white");
+  fill('white');
   noStroke();
 
   // Draw play/pause button
   const dim = min(width, height);
   if (audioContext) {
     // Get a new volume based on mouse position
+    // from 0 to 1
     const volume = abs(mouseX - width / 2) / (width / 2);
 
     // Schedule a gradual shift in value with a small time constant
@@ -78,8 +79,8 @@ function polygon(x, y, radius, sides = 3, angle = 0) {
   beginShape();
   for (let i = 0; i < sides; i++) {
     const a = angle + TWO_PI * (i / sides);
-    let sx = x + cos(a) * radius;
-    let sy = y + sin(a) * radius;
+    const sx = x + cos(a) * radius;
+    const sy = y + sin(a) * radius;
     vertex(sx, sy);
   }
   endShape(CLOSE);
